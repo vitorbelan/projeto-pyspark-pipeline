@@ -38,6 +38,7 @@ projeto-pyspark-pipeline/
 │   ├── quality_check.py              # Classe para Data Quality
 │   ├── data_pipeline.py              # Pipeline principal PySpark
 │   └── config.py                     # Configurações
+├── 📊 print_results/
 ├── 📊 data/
 │   └── df_credit_amostra.csv          # Dados de entrada
 ├── ✈️ airflow/
