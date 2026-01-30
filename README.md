@@ -378,10 +378,3 @@ environment:
 
 Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
-## 👨‍💻 Autor
-
-Desenvolvido como solução completa de pipeline de dados com PySpark, Docker e Airflow.
-
----
-
-**🎯 Ready to process some data? Execute `./run.sh pipeline` and let's go!**
