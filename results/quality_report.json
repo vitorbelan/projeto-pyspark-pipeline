@@ -1,0 +1,403 @@
+{
+  "raw_data": {
+    "timestamp": "2026-01-29T18:56:29.675921",
+    "basic_metrics": {
+      "total_records": 17,
+      "total_columns": 13
+    },
+    "null_analysis": {
+      "null_details": [
+        {
+          "column": "timestamp",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "sending_address",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "receiving_address",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "amount",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "transaction_type",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "location_region",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "ip_prefix",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "login_frequency",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "session_duration",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "purchase_pattern",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "age_group",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "risk_score",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "anomaly",
+          "null_count": 0,
+          "null_percentage": 0.0
+        }
+      ],
+      "columns_with_nulls": 0
+    },
+    "duplicate_analysis": {
+      "total_records": 17,
+      "unique_records": 17,
+      "duplicate_count": 0,
+      "duplicate_percentage": 0.0
+    },
+    "data_types_analysis": {
+      "data_types": [
+        {
+          "column": "timestamp",
+          "data_type": "int"
+        },
+        {
+          "column": "sending_address",
+          "data_type": "string"
+        },
+        {
+          "column": "receiving_address",
+          "data_type": "string"
+        },
+        {
+          "column": "amount",
+          "data_type": "double"
+        },
+        {
+          "column": "transaction_type",
+          "data_type": "string"
+        },
+        {
+          "column": "location_region",
+          "data_type": "string"
+        },
+        {
+          "column": "ip_prefix",
+          "data_type": "double"
+        },
+        {
+          "column": "login_frequency",
+          "data_type": "int"
+        },
+        {
+          "column": "session_duration",
+          "data_type": "int"
+        },
+        {
+          "column": "purchase_pattern",
+          "data_type": "string"
+        },
+        {
+          "column": "age_group",
+          "data_type": "string"
+        },
+        {
+          "column": "risk_score",
+          "data_type": "string"
+        },
+        {
+          "column": "anomaly",
+          "data_type": "string"
+        }
+      ],
+      "type_distribution": {
+        "double": 2,
+        "string": 8,
+        "int": 3
+      }
+    },
+    "statistical_analysis": {
+      "numeric_columns": [
+        "timestamp",
+        "amount",
+        "ip_prefix",
+        "login_frequency",
+        "session_duration"
+      ],
+      "statistics": {
+        "timestamp": {
+          "count": 17,
+          "mean": 1638259435.4117646,
+          "stddev": 36486042.077175416,
+          "min": 1590044893.0,
+          "max": 1698642474.0
+        },
+        "amount": {
+          "count": 17,
+          "mean": 45015.05882352941,
+          "stddev": 25176.810665944635,
+          "min": 1.0,
+          "max": 70754.0
+        },
+        "ip_prefix": {
+          "count": 17,
+          "mean": 182.65552941176472,
+          "stddev": 10.27789452002237,
+          "min": 172.0,
+          "max": 192.168
+        },
+        "login_frequency": {
+          "count": 17,
+          "mean": 5.0,
+          "stddev": 2.2638462845343543,
+          "min": 1.0,
+          "max": 8.0
+        },
+        "session_duration": {
+          "count": 17,
+          "mean": 79.11764705882354,
+          "stddev": 34.458094754609505,
+          "min": 32.0,
+          "max": 149.0
+        }
+      }
+    },
+    "anomalies": [],
+    "quality_score": 100.0
+  },
+  "cleaned_data": {
+    "timestamp": "2026-01-29T18:56:32.046394",
+    "basic_metrics": {
+      "total_records": 17,
+      "total_columns": 14
+    },
+    "null_analysis": {
+      "null_details": [
+        {
+          "column": "timestamp",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "sending_address",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "receiving_address",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "amount",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "transaction_type",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "location_region",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "ip_prefix",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "login_frequency",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "session_duration",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "purchase_pattern",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "age_group",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "risk_score",
+          "null_count": 2,
+          "null_percentage": 11.76
+        },
+        {
+          "column": "anomaly",
+          "null_count": 0,
+          "null_percentage": 0.0
+        },
+        {
+          "column": "timestamp_readable",
+          "null_count": 0,
+          "null_percentage": 0.0
+        }
+      ],
+      "columns_with_nulls": 1
+    },
+    "duplicate_analysis": {
+      "total_records": 17,
+      "unique_records": 17,
+      "duplicate_count": 0,
+      "duplicate_percentage": 0.0
+    },
+    "data_types_analysis": {
+      "data_types": [
+        {
+          "column": "timestamp",
+          "data_type": "int"
+        },
+        {
+          "column": "sending_address",
+          "data_type": "string"
+        },
+        {
+          "column": "receiving_address",
+          "data_type": "string"
+        },
+        {
+          "column": "amount",
+          "data_type": "double"
+        },
+        {
+          "column": "transaction_type",
+          "data_type": "string"
+        },
+        {
+          "column": "location_region",
+          "data_type": "string"
+        },
+        {
+          "column": "ip_prefix",
+          "data_type": "double"
+        },
+        {
+          "column": "login_frequency",
+          "data_type": "int"
+        },
+        {
+          "column": "session_duration",
+          "data_type": "int"
+        },
+        {
+          "column": "purchase_pattern",
+          "data_type": "string"
+        },
+        {
+          "column": "age_group",
+          "data_type": "string"
+        },
+        {
+          "column": "risk_score",
+          "data_type": "double"
+        },
+        {
+          "column": "anomaly",
+          "data_type": "string"
+        },
+        {
+          "column": "timestamp_readable",
+          "data_type": "string"
+        }
+      ],
+      "type_distribution": {
+        "double": 3,
+        "string": 8,
+        "int": 3
+      }
+    },
+    "statistical_analysis": {
+      "numeric_columns": [
+        "timestamp",
+        "amount",
+        "ip_prefix",
+        "login_frequency",
+        "session_duration",
+        "risk_score"
+      ],
+      "statistics": {
+        "timestamp": {
+          "count": 17,
+          "mean": 1638259435.4117646,
+          "stddev": 36486042.077175416,
+          "min": 1590044893.0,
+          "max": 1698642474.0
+        },
+        "amount": {
+          "count": 17,
+          "mean": 45015.05882352941,
+          "stddev": 25176.810665944635,
+          "min": 1.0,
+          "max": 70754.0
+        },
+        "ip_prefix": {
+          "count": 17,
+          "mean": 182.65552941176472,
+          "stddev": 10.27789452002237,
+          "min": 172.0,
+          "max": 192.168
+        },
+        "login_frequency": {
+          "count": 17,
+          "mean": 5.0,
+          "stddev": 2.2638462845343543,
+          "min": 1.0,
+          "max": 8.0
+        },
+        "session_duration": {
+          "count": 17,
+          "mean": 79.11764705882354,
+          "stddev": 34.458094754609505,
+          "min": 32.0,
+          "max": 149.0
+        },
+        "risk_score": {
+          "count": 15,
+          "mean": 35.7,
+          "stddev": 16.94060000624029,
+          "min": 15.0,
+          "max": 62.5
+        }
+      }
+    },
+    "anomalies": [],
+    "quality_score": 95.0
+  }
+}

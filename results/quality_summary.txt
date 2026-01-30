@@ -1,0 +1,11 @@
+RELATÓRIO DE QUALIDADE DE DADOS
+==================================================
+
+Timestamp: 2026-01-29T18:56:32.046394
+Total de registros: 17
+Total de colunas: 14
+Score de qualidade: 95.0/100
+
+Colunas com nulos: 1
+Registros duplicados: 0
+Anomalias detectadas: 0

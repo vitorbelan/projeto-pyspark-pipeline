@@ -1,0 +1,131 @@
+version: '3.8'
+
+services:
+  pyspark-pipeline:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: credit-data-pipeline
+    environment:
+      - SPARK_DRIVER_MEMORY=2g
+      - SPARK_EXECUTOR_MEMORY=2g
+      - SPARK_EXECUTOR_CORES=2
+      - DATA_PATH=/data/df_credit_amostra.csv
+      - RESULTS_PATH=/results
+      - PYTHONPATH=/app/src
+    volumes:
+      # CORREÇÃO: Mapeamentos absolutos do diretório atual
+      - ${PWD}/data:/data:ro              # Dados de entrada (somente leitura)
+      - ${PWD}/results:/results           # Resultados de saída - CRUCIAL!
+      - ${PWD}/logs:/logs                 # Logs de execução
+      - ${PWD}/src:/app/src               # Código fonte
+    working_dir: /app
+    command: ["python3", "src/data_pipeline.py"]
+    networks:
+      - pipeline-network
+    restart: "no"  # Execução única para o pipeline
+    depends_on:
+      - setup-directories
+
+  # Serviço para garantir que diretórios existam
+  setup-directories:
+    image: alpine:latest
+    container_name: setup-directories
+    volumes:
+      - ${PWD}/results:/results
+      - ${PWD}/logs:/logs
+    command: >
+      sh -c "
+        mkdir -p /results &&
+        mkdir -p /logs &&
+        chmod 777 /results &&
+        chmod 777 /logs &&
+        echo '✅ Diretórios criados e configurados'
+      "
+    restart: "no"
+
+  # Jupyter Lab para análise interativa
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: credit-data-jupyter
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - SPARK_DRIVER_MEMORY=2g
+      - SPARK_EXECUTOR_MEMORY=2g
+      - GRANT_SUDO=yes
+      - JUPYTER_TOKEN=pipeline123  # Token fixo para facilitar acesso
+    volumes:
+      - ${PWD}/data:/data:ro
+      - ${PWD}/results:/results
+      - ${PWD}/src:/app/src
+      - ${PWD}/notebooks:/app/notebooks
+    ports:
+      - "8888:8888"
+    command: >
+      bash -c "
+        pip install jupyterlab &&
+        jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='pipeline123' --NotebookApp.password=''
+      "
+    networks:
+      - pipeline-network
+    profiles:
+      - jupyter
+    restart: unless-stopped  # CORREÇÃO: Manter rodando
+
+  # Spark History Server para monitoramento
+  spark-history:
+    image: apache/spark:3.4.1
+    container_name: spark-history-server
+    environment:
+      - SPARK_HISTORY_OPTS=-Dspark.history.fs.logDirectory=/tmp/spark-events
+      - SPARK_NO_DAEMONIZE=1
+    volumes:
+      - ${PWD}/spark-events:/tmp/spark-events
+    ports:
+      - "18080:18080"
+    command: >
+      bash -c "
+        mkdir -p /tmp/spark-events &&
+        /opt/spark/sbin/start-history-server.sh &&
+        tail -f /dev/null
+      "
+    networks:
+      - pipeline-network
+    profiles:
+      - monitoring
+    restart: unless-stopped  # CORREÇÃO: Manter rodando
+
+  # Container para debug e verificação
+  debug:
+    image: alpine:latest
+    container_name: pipeline-debug
+    volumes:
+      - ${PWD}:/workspace
+    working_dir: /workspace
+    command: >
+      sh -c "
+        echo '🔍 DEBUG - Verificando estrutura de diretórios:' &&
+        ls -la / &&
+        echo '' &&
+        echo '📁 Conteúdo do workspace:' &&
+        ls -la /workspace &&
+        echo '' &&
+        echo '📊 Verificando resultados:' &&
+        ls -la /workspace/results/ || echo 'Diretório results não encontrado' &&
+        echo '' &&
+        echo '📂 Verificando dados:' &&
+        ls -la /workspace/data/ || echo 'Diretório data não encontrado' &&
+        tail -f /dev/null
+      "
+    profiles:
+      - debug
+    restart: unless-stopped
+
+networks:
+  pipeline-network:
+    driver: bridge
+
+volumes:
+  spark-events:

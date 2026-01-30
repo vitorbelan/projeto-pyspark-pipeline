@@ -1,0 +1,22 @@
+[
+  {
+    "location_region":"North America",
+    "avg_risk_score":52.5
+  },
+  {
+    "location_region":"Africa",
+    "avg_risk_score":39.12
+  },
+  {
+    "location_region":"South America",
+    "avg_risk_score":38.36
+  },
+  {
+    "location_region":"Asia",
+    "avg_risk_score":31.25
+  },
+  {
+    "location_region":"Europe",
+    "avg_risk_score":17.5
+  }
+]
