@@ -63,17 +63,17 @@ cp df_credit_amostra.csv data/
 
 ```bash
 # Dar permissão de execução ao script
-chmod +x run.sh
+chmod +x ./run-complete.sh
 
 # Executar apenas o pipeline principal
-./run.sh pipeline
+./run-complete.sh pipeline
 ```
 
 ### 3️⃣ **Execução com Jupyter (Desenvolvimento)**
 
 ```bash
 # Executar pipeline + Jupyter Lab
-./run.sh jupyter
+./run-complete.sh jupyter
 
 # Acessar: http://localhost:8888
 ```
@@ -82,7 +82,7 @@ chmod +x run.sh
 
 ```bash
 # Executar com Spark History Server
-./run.sh monitoring
+./run-complete.sh monitoring
 
 # Acessar Spark UI: http://localhost:18080
 ```
@@ -91,7 +91,7 @@ chmod +x run.sh
 
 ```bash
 # Configurar e executar Airflow
-./run.sh airflow
+./run-complete.sh airflow
 
 # Acessar: http://localhost:8080
 # Usuário: admin | Senha: admin123
@@ -101,7 +101,7 @@ chmod +x run.sh
 
 ```bash
 # Executar tudo junto
-./run.sh all
+./run-complete.sh all
 
 # Serviços disponíveis:
 # - Pipeline: Execução única
@@ -238,7 +238,7 @@ docker-compose --profile jupyter up -d
 ### **Logs da Pipeline**
 ```bash
 # Ver logs em tempo real
-./run.sh logs
+./run-complete.sh logs
 
 # Ou diretamente
 docker-compose logs -f pyspark-pipeline
@@ -247,7 +247,7 @@ docker-compose logs -f pyspark-pipeline
 ### **Spark UI (History Server)**
 ```bash
 # Iniciar monitoramento
-./run.sh monitoring
+./run-complete.sh monitoring
 
 # Acessar: http://localhost:18080
 ```
@@ -255,7 +255,7 @@ docker-compose logs -f pyspark-pipeline
 ### **Jupyter Lab (Desenvolvimento)**
 ```bash
 # Análise interativa
-./run.sh jupyter
+./run-complete.sh jupyter
 
 # Acessar: http://localhost:8888
 ```
@@ -285,17 +285,17 @@ QUALITY_THRESHOLDS = {
 
 ### **Parar Todos os Serviços**
 ```bash
-./run.sh stop
+./run-complete.sh stop
 ```
 
 ### **Limpar Ambiente Completo**
 ```bash
-./run.sh clean
+./run-complete.sh clean
 ```
 
 ### **Ajuda Completa**
 ```bash
-./run.sh help
+./run-complete.sh help
 ```
 
 ## 📋 Dependências
@@ -335,7 +335,7 @@ sudo systemctl start docker
 lsof -i :8080
 
 # Parar serviços conflitantes
-./run.sh stop
+./run-complete.sh stop
 ```
 
 ### **Problema: "Permissão negada no run.sh"**
