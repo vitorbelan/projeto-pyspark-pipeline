@@ -7,7 +7,8 @@ Este projeto implementa uma pipeline completa de processamento de dados de trans
 Aqui trouxe um projeto estruturadado onde a ideia e conseguir rodar usando docker mas que ele traga uma previa dos resultados no proprio terminal.
 
 pontos basicos e rapidos
-necessario colocar o arquivo de ingestao dentro da pasta data e ter docker rodando. depois so seguir a estruturacao do READM.md
+necessario colocar o arquivo de ingestao dentro da pasta data e ter docker rodando. depois so seguir a estruturacao do README.md
+com o docker instalado rodar com comando ./run-complete.sh all
 
 A pipeline processa dados de transações financeiras e realiza:
 - ✅ **Importação** e limpeza de dados CSV
