@@ -12,7 +12,7 @@ from datetime import datetime
 # Adicionar o diretório atual ao path para importar nossa classe
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from quality_check import QualityCheck
+from src.quality_check import QualityCheck
 
 
 class CreditDataPipeline:
